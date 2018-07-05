@@ -46,25 +46,59 @@ export const initialState = {
 
 export type SettingsState = {
   BCH: {
-    denomination: string
+    denomination: string,
+    isCustomNodesEnabled: boolean,
+    customNodesList: Array<string>
   },
   BTC: {
-    denomination: string
+    denomination: string,
+    isCustomNodesEnabled: boolean,
+    customNodesList: Array<string>
   },
   DASH: {
-    denomination: string
+    denomination: string,
+    isCustomNodesEnabled: boolean,
+    customNodesList: Array<string>
   },
   FTC: {
-    denomination: string
+    denomination: string,
+    isCustomNodesEnabled: boolean,
+    customNodesList: Array<string>
   },
   ETH: {
-    denomination: string
+    denomination: string,
+    isCustomNodesEnabled: boolean,
+    customNodesList: Array<string>
   },
   LTC: {
-    denomination: string
+    denomination: string,
+    isCustomNodesEnabled: boolean,
+    customNodesList: Array<string>
+  },
+  XMR: {
+    denomination: string,
+    isCustomNodesEnabled: boolean,
+    customNodesList: Array<string>
   },
   UFO: {
-    denomination: string
+    denomination: string,
+    isCustomNodesEnabled: boolean,
+    customNodesList: Array<string>
+  },
+  QTUM: {
+    denomination: string,
+    isCustomNodesEnabled: boolean,
+    customNodesList: Array<string>
+  },
+  DGB: {
+    denomination: string,
+    isCustomNodesEnabled: boolean,
+    customNodesList: Array<string>
+  },
+  BTG: {
+    denomination: string,
+    isCustomNodesEnabled: boolean,
+    customNodesList: Array<string>
   },
   REP: {
     denomination: string

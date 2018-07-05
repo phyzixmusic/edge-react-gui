@@ -26,6 +26,8 @@ const SET_MERCHANT_MODE_START = PREFIX + 'SET_MERCHANT_MODE_START'
 const SET_BLUETOOTH_MODE_START = PREFIX + 'SET_BLUETOOTH_MODE_START'
 const SET_BITCOIN_OVERRIDE_SERVER_START = PREFIX + 'SET_BITCOIN_OVERRIDE_SERVER_START'
 
+const SET_ENABLE_CUSTOM_NODES = 'SET_ENABLE_CUSTOM_NODES'
+
 export const SELECT_DEFAULT_FIAT = PREFIX + 'SELECT_DEFAULT_FIAT'
 
 export const setPINModeRequest = (pinMode: boolean) => (dispatch: Dispatch, getState: GetState) => {
@@ -165,6 +167,20 @@ export const setBitcoinOverrideServerRequest = (overrideServer: string) => (disp
   dispatch(SETTINGS_ACTIONS.setBitcoinOverrideServer(overrideServer))
 }
 
+export const toggleEnableCustomNodes = (currencyCode: string) => (dispatch: Dispatch, getState: GetState) => {
+  const state = getState()
+  const account = CORE_SELECTORS.getAccount(state)
+  // $FlowFixMe
+  const isCustomNodesCurrentlyEnabled = state.ui.settings[currencyCode].isCustomNodesEnabled
+  const isCustomNodesNowEnabled = !isCustomNodesCurrentlyEnabled
+  const onSuccess = () => dispatch(setCustomNodesEnabled(isCustomNodesNowEnabled))
+  const onError = e => console.log(e)
+  // $FlowFixMe
+  return ACCOUNT_SETTINGS.setEnableCustomNodes(account, currencyCode, isCustomNodesNowEnabled)
+    .then(onSuccess)
+    .catch(onError)
+}
+
 // touch id interaction
 export const updateTouchIdEnabled = (arg: boolean, account: EdgeAccount) => async (dispatch: Dispatch, getState: GetState) => {
   const folder = CORE_SELECTORS.getFolder(getState())
@@ -230,6 +246,11 @@ export function togglePinLoginEnabled (pinLoginEnabled: boolean) {
     })
   }
 }
+
+export const setCustomNodesEnabled = (isCustomNodesEnabled: boolean) => ({
+  type: SET_ENABLE_CUSTOM_NODES,
+  data: { isCustomNodesEnabled }
+})
 
 // Settings
 
