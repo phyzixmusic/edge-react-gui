@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import type { Dispatch, State } from '../../../ReduxTypes.js'
 import * as SETTINGS_SELECTORS from '../../Settings/selectors'
-import { setDenominationKeyRequest, toggleEnableCustomNodes } from './action'
+import { saveCustomNodesList, setDenominationKeyRequest, toggleEnableCustomNodes } from './action'
 import CurrencySettings from './CurrencySettings.ui'
 
 const mapStateToProps = (state: State, ownProps) => ({
@@ -18,7 +18,8 @@ const mapDispatchToProps = (dispatch: Dispatch, ownProps) => ({
   selectDenomination: denominationKey => {
     dispatch(setDenominationKeyRequest(ownProps.currencyCode, denominationKey))
   },
-  toggleEnableCustomNodes: () => dispatch(toggleEnableCustomNodes(ownProps.currencyCode))
+  toggleEnableCustomNodes: () => dispatch(toggleEnableCustomNodes(ownProps.currencyCode)),
+  saveCustomNodesList: (customNodesList: Array<string>) => dispatch(saveCustomNodesList(ownProps.currencyCode, customNodesList))
 })
 export default connect(
   mapStateToProps,

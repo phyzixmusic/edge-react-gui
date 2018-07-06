@@ -10,6 +10,7 @@ import { SEND_LOGS_FAILURE, SEND_LOGS_PENDING, SEND_LOGS_REQUEST, SEND_LOGS_SUCC
 import type { Action } from '../../ReduxTypes'
 import { UPDATE_SHOW_PASSWORD_RECOVERY_REMINDER_MODAL } from '../components/PasswordRecoveryReminderModal/PasswordRecoveryReminderModalActions.js'
 import * as ADD_TOKEN_ACTION from '../scenes/AddToken/action.js'
+import * as SETTINGS_ACTION from '../scenes/Settings/action.js'
 import * as WALLET_ACTION from '../Wallets/action'
 import * as ACTION from './action.js'
 import { spendingLimits } from './spendingLimits/SpendingLimitsReducer.js'
@@ -589,7 +590,7 @@ export const settingsLegacy = (state: SettingsState = initialState, action: Acti
       }
     }
 
-    case ACTION.SET_ENABLE_CUSTOM_NODES: {
+    case SETTINGS_ACTION.SET_ENABLE_CUSTOM_NODES: {
       const { currencyCode, isCustomNodesEnabled } = data
       if (!currencyCode) return state
       return {
@@ -597,6 +598,18 @@ export const settingsLegacy = (state: SettingsState = initialState, action: Acti
         [currencyCode]: {
           ...state[currencyCode],
           isCustomNodesEnabled
+        }
+      }
+    }
+
+    case SETTINGS_ACTION.UPDATE_CUSTOM_NODES_LIST: {
+      const currencyCode = data.currencyCode
+      const customNodesList = data.customNodesList
+      return {
+        ...state,
+        [currencyCode]: {
+          ...state[currencyCode],
+          customNodesList
         }
       }
     }
