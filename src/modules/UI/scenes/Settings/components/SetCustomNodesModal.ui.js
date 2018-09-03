@@ -11,7 +11,7 @@ import styles from '../style.js'
 export type SetCustomNodesModalOwnProps = {
   isActive: boolean,
   onExit: () => void,
-  customNodesList: Array<string>
+  customNodesList?: Array<string>
 }
 
 export class SetCustomNodesModal extends Component<SetCustomNodesModalOwnProps> {

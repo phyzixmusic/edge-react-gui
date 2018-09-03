@@ -55,12 +55,22 @@ export type SettingsState = {
     isCustomNodesEnabled: boolean,
     customNodesList: Array<string>
   },
+  BTG: {
+    denomination: string,
+    isCustomNodesEnabled: boolean,
+    customNodesList: Array<string>
+  },
   DASH: {
     denomination: string,
     isCustomNodesEnabled: boolean,
     customNodesList: Array<string>
   },
-  FTC: {
+  DGB: {
+    denomination: string,
+    isCustomNodesEnabled: boolean,
+    customNodesList: Array<string>
+  },
+  DOGE: {
     denomination: string,
     isCustomNodesEnabled: boolean,
     customNodesList: Array<string>
@@ -70,16 +80,18 @@ export type SettingsState = {
     isCustomNodesEnabled: boolean,
     customNodesList: Array<string>
   },
+  FTC: {
+    denomination: string,
+    isCustomNodesEnabled: boolean,
+    customNodesList: Array<string>
+  },
+
   LTC: {
     denomination: string,
     isCustomNodesEnabled: boolean,
     customNodesList: Array<string>
   },
-  XMR: {
-    denomination: string,
-    isCustomNodesEnabled: boolean,
-    customNodesList: Array<string>
-  },
+
   UFO: {
     denomination: string,
     isCustomNodesEnabled: boolean,
@@ -90,17 +102,36 @@ export type SettingsState = {
     isCustomNodesEnabled: boolean,
     customNodesList: Array<string>
   },
-  DGB: {
+  VTC: {
     denomination: string,
     isCustomNodesEnabled: boolean,
     customNodesList: Array<string>
   },
-  BTG: {
+  XMR: {
     denomination: string,
     isCustomNodesEnabled: boolean,
     customNodesList: Array<string>
+  },
+  XRP: {
+    denomination: string,
+    isCustomNodesEnabled: boolean,
+    customNodesList: Array<string>
+  },
+  XZC: {
+    denomination: string,
+    isCustomNodesEnabled: boolean,
+    customNodesList: Array<string>
+  },
+  HUR: {
+    denomination: string
+  },
+  IND: {
+    denomination: string
   },
   REP: {
+    denomination: string
+  },
+  USDT: {
     denomination: string
   },
   WINGS: {
@@ -255,7 +286,9 @@ export const settingsLegacy = (state: SettingsState = initialState, action: Acti
           ...newState,
           [currencyCode]: {
             ...currencyState,
-            denomination
+            denomination,
+            isCustomNodesEnabled: false,
+            customNodesList: []
           }
         }
       })
@@ -553,6 +586,18 @@ export const settingsLegacy = (state: SettingsState = initialState, action: Acti
       return {
         ...state,
         isTouchEnabled: data.isTouchEnabled
+      }
+    }
+
+    case ACTION.SET_ENABLE_CUSTOM_NODES: {
+      const { currencyCode, isCustomNodesEnabled } = data
+      if (!currencyCode) return state
+      return {
+        ...state,
+        [currencyCode]: {
+          ...state[currencyCode],
+          isCustomNodesEnabled
+        }
       }
     }
 
