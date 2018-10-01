@@ -2,6 +2,7 @@
 
 import { StyleSheet } from 'react-native'
 
+import { scale } from '../../../../lib/scaling.js'
 import THEME from '../../../../theme/variables/airbitz'
 import { PLATFORM } from '../../../../theme/variables/platform.js'
 
@@ -25,29 +26,29 @@ export const styles = {
   },
   searchContainer: {
     backgroundColor: THEME.COLORS.PRIMARY,
-    height: 44,
-    paddingTop: 8,
-    paddingBottom: 8,
-    paddingRight: 10,
-    paddingLeft: 10,
+    height: scale(44),
+    paddingTop: scale(8),
+    paddingBottom: scale(8),
+    paddingRight: scale(10),
+    paddingLeft: scale(10),
     flexDirection: 'row'
   },
   innerSearch: {
     backgroundColor: THEME.COLORS.WHITE,
-    height: 28,
-    borderRadius: 3,
+    height: scale(28),
+    borderRadius: scale(3),
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingLeft: 8,
-    paddingRight: 8
+    paddingLeft: scale(8),
+    paddingRight: scale(8)
   },
   searchIcon: {
     color: THEME.COLORS.GRAY_2
   },
   searchInput: {
-    height: 18,
+    height: scale(18),
     flex: 1,
     alignSelf: 'center',
     textAlign: 'center'
@@ -55,9 +56,9 @@ export const styles = {
   cancelButton: {
     justifyContent: 'space-around',
     alignItems: 'center',
-    paddingLeft: 6,
-    paddingRight: 6,
-    height: 28
+    paddingLeft: scale(6),
+    paddingRight: scale(6),
+    height: scale(28)
   },
   cancelButtonText: {
     color: THEME.COLORS.WHITE,
@@ -66,7 +67,7 @@ export const styles = {
 
   // end of searchbar stuff
   touchableBalanceBox: {
-    height: 200
+    height: scale(200)
   },
   currentBalanceBox: {
     flex: 1,
@@ -85,12 +86,12 @@ export const styles = {
   },
   currentBalanceBoxHiddenText: {
     color: THEME.COLORS.WHITE,
-    fontSize: 44
+    fontSize: scale(44)
   },
   balanceBoxContents: {
     flex: 1,
-    paddingTop: 10,
-    paddingBottom: 20,
+    paddingTop: scale(10),
+    paddingBottom: scale(20),
     justifyContent: 'space-between'
   },
   updatingBalanceWrap: {
@@ -116,32 +117,32 @@ export const styles = {
   },
   iconWrap: {
     // two
-    height: 28,
-    width: 28,
+    height: scale(28),
+    width: scale(28),
     justifyContent: 'flex-start',
     backgroundColor: THEME.COLORS.TRANSPARENT
   },
   currentBalanceBoxBitsWrap: {
     // two
-    height: 44,
+    height: scale(44),
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: THEME.COLORS.TRANSPARENT
   },
   currentBalanceBoxBits: {
     color: THEME.COLORS.WHITE,
-    fontSize: 40
+    fontSize: scale(40)
   },
   currentBalanceBoxDollarsWrap: {
     justifyContent: 'flex-start',
-    height: 26,
-    paddingTop: 4,
+    height: scale(26),
+    paddingTop: scale(4),
     backgroundColor: THEME.COLORS.TRANSPARENT
   },
   currentBalanceBoxDollars: {
     // two
     color: THEME.COLORS.WHITE,
-    fontSize: 20
+    fontSize: scale(20)
   },
   balanceHiddenContainer: {
     justifyContent: 'center',
@@ -151,23 +152,23 @@ export const styles = {
   balanceHiddenText: {
     alignSelf: 'center',
     color: THEME.COLORS.WHITE,
-    fontSize: 36
+    fontSize: scale(36)
   },
   requestSendRow: {
     // two
-    height: 50,
+    height: scale(50),
     flexDirection: 'row'
   },
   button: {
-    borderRadius: 3
+    borderRadius: scale(3)
   },
   requestBox: {
     backgroundColor: `${THEME.COLORS.WHITE}${THEME.ALPHA.LOW}`,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginLeft: 8,
-    marginRight: 2,
+    marginLeft: scale(8),
+    marginRight: scale(2),
     flexDirection: 'row',
     borderColor: THEME.COLORS.GRAY_4
     // borderWidth: 0.1,
@@ -180,7 +181,7 @@ export const styles = {
   requestIcon: {
     textAlignVertical: 'center',
     alignSelf: 'center',
-    marginRight: 10
+    marginRight: scale(10)
   },
   sendBox: {
     backgroundColor: `${THEME.COLORS.WHITE}${THEME.ALPHA.LOW}`,
@@ -188,8 +189,8 @@ export const styles = {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginLeft: 2,
-    marginRight: 8,
+    marginLeft: scale(2),
+    marginRight: scale(8),
     flexDirection: 'row',
     borderColor: THEME.COLORS.GRAY_4
     // borderWidth: 0.1,
@@ -202,17 +203,17 @@ export const styles = {
   sendIcon: {
     textAlignVertical: 'center',
     alignSelf: 'center',
-    marginRight: 10
+    marginRight: scale(10)
   },
   request: {
-    fontSize: 18,
+    fontSize: scale(18),
     color: THEME.COLORS.WHITE,
-    marginHorizontal: 12
+    marginHorizontal: scale(12)
   },
   send: {
-    fontSize: 18,
+    fontSize: scale(18),
     color: THEME.COLORS.WHITE,
-    marginHorizontal: 12
+    marginHorizontal: scale(12)
   },
 
   // beginning of second half
@@ -221,8 +222,8 @@ export const styles = {
   },
 
   searchBarView: {
-    paddingLeft: 12,
-    paddingRight: 24,
+    paddingLeft: scale(12),
+    paddingRight: scale(24),
     flexDirection: 'row',
     alignItems: 'center'
   },
@@ -232,12 +233,12 @@ export const styles = {
     backgroundColor: THEME.COLORS.OFF_WHITE
   },
   singleTransaction: {
-    height: 60,
+    height: scale(60),
     borderBottomWidth: 1,
     borderBottomColor: THEME.COLORS.GRAY_3,
-    padding: 10,
-    paddingRight: 30,
-    paddingLeft: 15
+    padding: scale(10),
+    paddingRight: scale(30),
+    paddingLeft: scale(15)
   },
   singleTransactionWrap: {
     backgroundColor: THEME.COLORS.WHITE,
@@ -247,17 +248,17 @@ export const styles = {
   singleDateArea: {
     backgroundColor: THEME.COLORS.GRAY_4,
     flex: 3,
-    padding: 8,
-    paddingLeft: 15,
+    padding: scale(8),
+    paddingLeft: scale(15),
     flexDirection: 'row',
-    paddingRight: 24
+    paddingRight: scale(24)
   },
   leftDateArea: {
     flex: 1
   },
   formattedDate: {
     color: THEME.COLORS.GRAY_2,
-    fontSize: 14
+    fontSize: scale(14)
   },
   rightDateSearch: {
     flex: 1,
@@ -265,7 +266,7 @@ export const styles = {
   },
   transactionInfoWrap: {
     flexDirection: 'row',
-    height: 40,
+    height: scale(40),
     flex: 1,
     justifyContent: 'space-between'
   },
@@ -273,21 +274,21 @@ export const styles = {
     flexDirection: 'row'
   },
   transactionLogo: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    marginRight: 10
+    width: scale(40),
+    height: scale(40),
+    borderRadius: scale(20),
+    marginRight: scale(10)
   },
   transactionLeftTextWrap: {
     justifyContent: 'center'
   },
   transactionPartner: {
-    fontSize: 16,
+    fontSize: scale(16),
     color: THEME.COLORS.GRAY_1,
     textAlignVertical: 'center'
   },
   transactionBitAmount: {
-    fontSize: 16,
+    fontSize: scale(16),
     textAlignVertical: 'center'
   },
   transactionRight: {
@@ -295,10 +296,10 @@ export const styles = {
     justifyContent: 'center'
   },
   transactionTimePendingArea: {
-    fontSize: 12,
+    fontSize: scale(12),
     textAlignVertical: 'bottom',
     position: 'relative',
-    top: 4
+    top: scale(4)
   },
   transactionTime: {
     color: THEME.COLORS.GRAY_1
@@ -310,11 +311,11 @@ export const styles = {
     color: THEME.COLORS.ACCENT_ORANGE
   },
   transactionDollarAmount: {
-    fontSize: 12,
+    fontSize: scale(12),
     color: THEME.COLORS.GRAY_2,
     textAlignVertical: 'center',
     position: 'relative',
-    top: 4
+    top: scale(4)
   },
   accentGreen: {
     color: THEME.COLORS.ACCENT_BLUE
@@ -335,15 +336,15 @@ export const styles = {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    height: 230
+    height: scale(230)
   },
   buyCryptoContainer: {
     width: PLATFORM.deviceWidth,
-    height: 220,
+    height: scale(220),
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 15
+    padding: scale(15)
   },
   buyCryptoBox: {
     flex: 2,
@@ -354,12 +355,12 @@ export const styles = {
     backgroundColor: THEME.COLORS.WHITE
   },
   buyCryptoBoxImage: {
-    width: 40,
-    height: 40
+    width: scale(40),
+    height: scale(40)
   },
   buyCryptoBoxText: {
-    marginTop: 10,
-    fontSize: 17,
+    marginTop: scale(10),
+    fontSize: scale(17),
     color: THEME.COLORS.GRAY_1
   },
   buyCryptoNoTransactionBox: {
@@ -369,7 +370,7 @@ export const styles = {
     justifyContent: 'center'
   },
   buyCryptoNoTransactionText: {
-    fontSize: 17,
+    fontSize: scale(17),
     color: THEME.COLORS.ACCENT_BLUE
   }
 }
