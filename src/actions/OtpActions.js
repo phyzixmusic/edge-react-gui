@@ -3,6 +3,7 @@
 import * as CORE_SELECTORS from '../modules/Core/selectors'
 import type { Dispatch, GetState } from '../modules/ReduxTypes'
 import * as SETTINGS_ACTIONS from '../modules/UI/Settings/action.js'
+
 export const enableOtp = () => async (dispatch: Dispatch, getState: GetState) => {
   const state = getState()
   const account = CORE_SELECTORS.getAccount(state)

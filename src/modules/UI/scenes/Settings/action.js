@@ -13,7 +13,9 @@ import { updateExchangeRates } from '../../../ExchangeRates/action.js'
 import { convertCurrency } from '../../../UI/selectors.js'
 import { displayErrorAlert } from '../../components/ErrorAlert/actions.js'
 import * as SETTINGS_ACTIONS from '../../Settings/action.js'
+import { showModal } from '../../../ModalManager.js'
 import { newSpendingLimits } from '../../Settings/spendingLimits/SpendingLimitsReducer.js'
+import { OtpModal } from '../../../../components/modals/OtpModal.js';
 
 const setPINModeStart = (pinMode: boolean) => ({
   type: 'UI/SCENES/SETTINGS/SET_PIN_MODE_START',
@@ -216,5 +218,15 @@ export function togglePinLoginEnabled (pinLoginEnabled: boolean) {
       console.log(error)
       dispatch(displayErrorAlert(error.message))
     })
+  }
+}
+
+export const showReEnableOtpModal = () => async (dispatch: Dispatch) => {
+  // Use `showModal` to put the modal component on screen:
+  const resolveValue = await showModal(OtpModal)
+  if (!resolveValue) return
+
+  return {
+    type: 'EAT_PIE'
   }
 }

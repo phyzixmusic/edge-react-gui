@@ -105,6 +105,14 @@ export default class SettingsOverview extends Component<Props, State> {
       this.props.resetConfirmPasswordError({ confirmPasswordError: '' })
     }
   }
+
+  componentDidMount = () => {
+    const { otpResetDate } = this.props
+    if (otpResetDate) {
+      this.props.showReEnableOtpModal()
+    }
+  }
+
   _onPressDummyRouting = () => {}
 
   unlockSettingsAlert = () => Alert.alert(null, s.strings.settings_alert_unlock, [{ text: s.strings.string_ok }])
