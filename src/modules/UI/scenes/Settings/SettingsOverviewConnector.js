@@ -11,9 +11,9 @@ import * as SETTINGS_SELECTORS from '../../Settings/selectors'
 import {
   checkCurrentPassword,
   lockSettings,
-  showReEnableOtpModal,
   restoreWallets,
   setAutoLogoutTimeInMinutesRequest,
+  showReEnableOtpModal,
   togglePinLoginEnabled,
   updateTouchIdEnabled
 } from './action'
@@ -59,7 +59,6 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
   onTogglePinLoginEnabled: (enableLogin: boolean) => dispatch(togglePinLoginEnabled(enableLogin)),
   onConfirmRestoreWallets: () => dispatch(restoreWallets()),
   showReEnableOtpModal: () => dispatch(showReEnableOtpModal())
-
 })
 
 export default connect(

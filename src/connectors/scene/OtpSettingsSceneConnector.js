@@ -17,7 +17,6 @@ export const mapStateToProps = (state: State) => {
     otpKey,
     otpResetDate
   }
-
 }
 
 export const mapDispatchToProps = (dispatch: Dispatch) => ({

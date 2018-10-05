@@ -2,25 +2,22 @@
 
 import React from 'react'
 import { Image } from 'react-native'
-import Text from '../../modules/UI/components/FormattedText'
 
-import { showModal } from '../../modules/ModalManager.js'
-import { PrimaryButton, SecondaryButton } from '../../modules/UI/components/Buttons/index.js'
-import { Icon } from '../../modules/UI/components/Icon/Icon.ui.js'
-import { InteractiveModal } from '../../modules/UI/components/Modals/index.js'
-import s from '../../locales/strings.js'
-import * as Constants from '../../constants/indexConstants.js'
 import iconImage from '../../assets/images/otp/OTP-badge_sm.png'
+import s from '../../locales/strings.js'
+import { PrimaryButton, SecondaryButton } from '../../modules/UI/components/Buttons/index.js'
+import Text from '../../modules/UI/components/FormattedText'
+import { InteractiveModal } from '../../modules/UI/components/Modals/index.js'
 
 // Define the modal like normal-ish:
-export const OtpModal = props => (
+export const OtpModal = (props: any) => (
   <InteractiveModal>
     <InteractiveModal.Icon>
       <Image source={iconImage} />
     </InteractiveModal.Icon>
 
     <InteractiveModal.Title>
-      <Text style={{textAlign: 'center'}}>{s.strings.title_otp_keep_modal}</Text>
+      <Text style={{ textAlign: 'center' }}>{s.strings.title_otp_keep_modal}</Text>
     </InteractiveModal.Title>
     <InteractiveModal.Body>
       <InteractiveModal.Description style={{ textAlign: 'center' }}>{s.strings.otp_modal_reset_description}</InteractiveModal.Description>
@@ -28,7 +25,12 @@ export const OtpModal = props => (
     <InteractiveModal.Footer>
       <InteractiveModal.Row>
         <InteractiveModal.Item>
-          <PrimaryButton onPress={() => props.onDone(true)}>
+          {/* re-enable OTP */}
+          <PrimaryButton
+            onPress={() => {
+              props.onDone(true)
+            }}
+          >
             <PrimaryButton.Text>{s.strings.otp_keep}</PrimaryButton.Text>
           </PrimaryButton>
         </InteractiveModal.Item>

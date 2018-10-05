@@ -5,17 +5,18 @@ import { disableTouchId, enableTouchId } from 'edge-login-ui-rn'
 import { Actions } from 'react-native-router-flux'
 
 import type { Dispatch, GetState } from '../../../../../src/modules/ReduxTypes.js'
+import { keepOtp } from '../../../../actions/OtpActions.js'
+import { OtpModal } from '../../../../components/modals/OtpModal.js'
 import s from '../../../../locales/strings.js'
 import { restoreWalletsRequest } from '../../../Core/Account/api.js'
 import * as ACCOUNT_SETTINGS from '../../../Core/Account/settings.js'
 import * as CORE_SELECTORS from '../../../Core/selectors'
 import { updateExchangeRates } from '../../../ExchangeRates/action.js'
+import { showModal } from '../../../ModalManager.js'
 import { convertCurrency } from '../../../UI/selectors.js'
 import { displayErrorAlert } from '../../components/ErrorAlert/actions.js'
 import * as SETTINGS_ACTIONS from '../../Settings/action.js'
-import { showModal } from '../../../ModalManager.js'
 import { newSpendingLimits } from '../../Settings/spendingLimits/SpendingLimitsReducer.js'
-import { OtpModal } from '../../../../components/modals/OtpModal.js';
 
 const setPINModeStart = (pinMode: boolean) => ({
   type: 'UI/SCENES/SETTINGS/SET_PIN_MODE_START',
@@ -224,9 +225,8 @@ export function togglePinLoginEnabled (pinLoginEnabled: boolean) {
 export const showReEnableOtpModal = () => async (dispatch: Dispatch) => {
   // Use `showModal` to put the modal component on screen:
   const resolveValue = await showModal(OtpModal)
-  if (!resolveValue) return
-
-  return {
-    type: 'EAT_PIE'
+  if (resolveValue) {
+    // let 2FA expire
+    dispatch(keepOtp())
   }
 }
