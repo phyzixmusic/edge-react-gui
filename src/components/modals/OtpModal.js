@@ -1,5 +1,6 @@
 // @flow
 
+import { InteractiveModal } from 'edge-components'
 import React from 'react'
 import { Image } from 'react-native'
 
@@ -7,7 +8,6 @@ import iconImage from '../../assets/images/otp/OTP-badge_sm.png'
 import s from '../../locales/strings.js'
 import { PrimaryButton, SecondaryButton } from '../../modules/UI/components/Buttons/index.js'
 import Text from '../../modules/UI/components/FormattedText'
-import { InteractiveModal } from '../../modules/UI/components/Modals/index.js'
 
 // Define the modal like normal-ish:
 export const OtpModal = (props: any) => (
